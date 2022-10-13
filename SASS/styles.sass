@@ -1,0 +1,285 @@
+@import "variables"
+@import "plugins"
+@import "mixins"
+@import "functions"
+
+@include reset
+
+body
+    height: 100vh
+    height: 100%
+
+    #header_container
+        background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(../ASSETS/IMG/office.jpg)
+        background-size: cover
+        background-position: center
+        height: 85vh
+
+        @include mobile
+            height: 100vh
+
+        nav
+            @include mobile
+                display: none
+
+        .nav_container
+            display: flex
+            justify-content: space-between
+            position: fixed
+            top: 0
+            left: 0
+            width: 100%
+            padding: 1.5rem
+            background-color: $black
+            z-index: 10
+
+            .brand
+                color: $color-3
+                font-size: 2rem
+                @include hoverElements
+
+            &_navBar
+                display: flex
+                align-items: center
+                height: 100%
+
+                li
+                    @include margin-padding($m: 5px 10px, $p:0)
+
+                    a
+                        color: $color-3
+                        @include hoverElements
+            .fas.fa-bars
+                font-size: 2rem
+                color: $color-3
+                display: none
+
+                @include mobile
+                    display: block
+
+        .title_container
+            @extend %turn-to-flex-center
+            color: $color-3
+            flex-direction: column
+            height: 100%
+
+            @include mobile
+                text-align: center
+                @include margin-padding(0, 2rem)
+
+            h2
+                @extend %title-text-shadow
+                font-size: 3rem
+
+                @include mobile
+                    font-size: 2rem
+
+            h1
+                @extend %title-text-shadow
+                font-size: 4rem
+                @include margin-padding($m: 1rem 0 0 0, $p:0)
+
+                @include mobile
+                    font-size: 3rem
+
+    #services_container
+        text-align: center
+        @include margin-padding(0 0 2rem 0, 2rem)
+
+        h2
+            @extend %section-title
+
+        .services_card_container
+            display: flex
+            flex-wrap: wrap
+            justify-content: space-around
+            @include margin-padding(0, 2rem)
+
+            @include mobile
+                @include margin-padding(0, 2rem 0)
+
+            .services_card
+                width: 30%
+                @include margin-padding(1%, 2rem)
+                @include setBorder(solid, #ccc)
+                transition: .3s
+
+                @include mobile
+                    width: 100%
+                    @include margin-padding(0 0 2rem 0, 0)
+
+                i
+                    color: $color-1
+                    font-size: 4rem
+                    display: block
+                    @include margin-padding(1rem 0 1.5rem 0, 0)
+
+                h3
+                    font-size: 1.5rem
+                    @include margin-padding(0 0 1rem 0, 0)
+
+                p
+                    color: $text-color
+
+                &:hover
+                    border-color: transparent
+                    box-shadow: 0 1px 10px #ccc
+
+    .jobs_container
+        background-color: $color-4
+        @include margin-padding(0, 3rem)
+
+        @include mobile
+            @include margin-padding(0, 2rem)
+
+        h2
+            @extend %section-title
+
+        .jobs_list
+            display: flex
+            @include margin-padding(0, 2rem 0)
+
+            @include mobile
+                flex-direction: column
+
+            .first_job
+                width: 30%
+                height: 415px
+                background-image: url("../ASSETS/IMG/job1.jpg")
+                position: relative
+                cursor: pointer
+                transition: .5s
+                @include margin-padding(0 2%, 0)
+                @extend %center-bg
+                @extend %card-hover
+                @extend %non-selective-text
+
+                @include mobile
+                    width: 100%
+                    height: 200px
+                    @include margin-padding(0 0 2rem 0, 0)
+
+            .other_jobs_container
+                display: flex
+                flex-wrap: wrap
+                width: 68%
+
+                @include mobile
+                    width: 100%
+                    flex-direction: column
+
+                .job_card
+                    width: 46%
+                    height: 200px
+                    position: relative
+                    cursor: pointer
+                    @include margin-padding(0 0 15px 15px, 0)
+                    @extend %center-bg
+                    @extend %card-hover
+                    @extend %non-selective-text
+
+                    @include mobile
+                        width: 100%
+                        height: 200px
+                        @include margin-padding(0 0 2rem 0, 0)
+
+            #job1
+                background-image: url("../ASSETS/IMG/job1.jpg")
+            #job2
+                background-image: url("../ASSETS/IMG/job2.jpg")
+            #job3
+                background-image: url("../ASSETS/IMG/job3.jpg")
+            #job4
+                background-image: url("../ASSETS/IMG/job4.jpg")
+            #job5
+                background-image: url("../ASSETS/IMG/job5.jpg")
+
+            .job_card_cover
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+                height: 100%
+                @include margin-padding(0, 1.75rem 0 0 0)
+                background-color: rgba(0, 0, 0, 0.6)
+                @include setBorder(solid, $color-1, 3px)
+
+            .job_card_title
+                text-align: center
+                color: #fff
+                font-size: 2.2rem
+                font-weight: 700
+                transition: .5s
+
+            .job_card_description
+                text-align: center
+                color: #fff
+                @include margin-padding(0, 1rem)
+                font-size: .9rem
+    footer
+        background-color: $color-5
+        color: $text-color
+        @include margin-padding(0, 5rem 2rem)
+
+        .footer_container
+            max-width: 1200px
+            @include margin-padding(0 auto, 0)
+            display: flex
+            flex-wrap: wrap
+
+            @include mobile
+                max-width: 100%
+                flex-direction: column
+
+            .footer_title
+                color: #fff
+                font-weight: 700
+                @include margin-padding(0 0 1rem 0, 0)
+
+            .footer_desc_container, .footer_links_container
+                width: 50%
+
+                @include mobile
+                    width: 100%
+                    @include margin-padding(0 0 2rem 0, 0)
+                    text-align: center
+
+            .footer_desc_container
+                p
+                    width: 80%
+                    line-height: 1.3
+
+                    @include mobile
+                        width: 100%
+
+            .footer_links_container
+                display: flex
+
+                @include mobile
+                    flex-direction: column
+
+                &_list
+                    @include margin-padding(0, 0 1rem)
+
+                    @include mobile
+                        @include margin-padding(0 0 2rem 0, 0 1rem)
+
+                    li
+                        @include margin-padding(0 0 0.5rem 0, 0)
+
+                        a
+                            color: $text-color
+                            transition: .5s
+
+                            &:hover
+                                color: #fff
+
+            .footer_copyright_container
+                width: 100%
+                @include margin-padding(3rem 0 0 0, 0)
+
+                @include mobile
+                    text-align: center
+
+                p
+                    @include margin-padding( 0 0 1rem 0, 0)

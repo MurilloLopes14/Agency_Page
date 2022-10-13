@@ -1,0 +1,31 @@
+
+@mixin reset()
+    *
+        padding: 0
+        margin: 0
+        box-sizing: border-box
+        font-family: $font-2
+
+    a
+        text-decoration: none
+
+    li
+        list-style: none
+
+@mixin margin-padding($m: 10px, $p: 10px)
+    margin: $m
+    padding: $p
+
+@mixin hoverElements
+    transition: .3s
+
+    &:hover
+        color: $color-1
+
+@mixin setBorder($style: solid, $color: #000, $width: 1px, $radius: 0)
+    border: $width $style $color
+    border-radius: $radius
+
+@mixin mobile()
+    @media screen and (max-width:425px)
+        @content

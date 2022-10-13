@@ -1,0 +1,59 @@
+@import "variables"
+@import "mixins"
+
+.btn
+    @include margin-padding($m: 0, $p: .6rem 1rem)
+    text-transform: uppercase
+    transition: .3s
+    color: $color-3
+    @include setBorder($style: solid, $color: $color-3, $radius: 5px)
+
+    &:hover
+        border-color: $color-1
+        color: $color-1
+
+    &_primary
+        background-color: $color-1
+        border-color: $color-1
+
+        &:hover
+            background-color: transparent
+
+    &_rounded
+        @include margin-padding($m: 1rem 0 0 0, $p: 1rem 1.5rem)
+        @include setBorder($color: $color-1 ,$radius: 2rem )
+
+%turn-to-flex-center
+    display: flex
+    justify-content: center
+    align-items: center
+
+%title-text-shadow
+    text-shadow: 3px 2px $black
+
+%section-title
+    font-size: 3rem
+    @include margin-padding(2rem 0 0 0, 0)
+    text-align: center
+
+%center-bg
+    background-size: cover
+    background-position: center
+
+%card-hover
+    .job_card_title, .job_card_cover, .job_card_description
+        opacity: 0
+        @include mobile
+            opacity: 1
+
+    &:hover
+        .job_card_title, .job_card_cover, .job_card_description
+            opacity: 1
+
+%non-selective-text
+    -webkit-touch-callout: none
+    -webkit-user-select: none
+    -khtml-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
